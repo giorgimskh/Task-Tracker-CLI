@@ -1,4 +1,4 @@
-package com.george.task_tracker_cli.TaskDto;
+package com.george.task_tracker_cli.domain.TaskDto;
 
 import java.util.List;
 import java.util.UUID;
