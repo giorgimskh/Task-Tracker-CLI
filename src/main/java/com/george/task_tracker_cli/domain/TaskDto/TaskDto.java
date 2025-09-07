@@ -9,12 +9,10 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 public record TaskDto(
-        UUID id, String title,
+        UUID id,
+        String title,
         String description,
         LocalDate dueDate,
         TaskPriority priority,
-        TaskStatus status,
-        TaskList taskList,
-        LocalDateTime created,
-        LocalDateTime updated) {
+        TaskStatus status) {
 }
