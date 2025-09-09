@@ -5,10 +5,10 @@ import java.util.UUID;
 
 public record TaskListDto(
         UUID id,
-        String Title,
+        String title,
         String description,
         Integer count,
-        double progress,
+        Double progress,
         List<TaskDto> tasks
-) {
+        ) {
 }
