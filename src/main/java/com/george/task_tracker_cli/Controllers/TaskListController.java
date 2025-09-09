@@ -6,9 +6,7 @@ import com.george.task_tracker_cli.domain.TaskDto.TaskListDto;
 import com.george.task_tracker_cli.domain.entities.Task;
 import com.george.task_tracker_cli.domain.entities.TaskList;
 import com.george.task_tracker_cli.mappers.TaskListMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +27,11 @@ public class TaskListController {
         return taskListService.listTaskLists()
                 .stream()
                 .map(taskListMappers::toDto).toList();
+    }
+
+    @PostMapping
+    public TaskListDto createTaskList(@RequestBody TaskListDto taskListDto) {
+        TaskList createdTaskList = taskListService.createTaskList(taskListMappers.fromDto(taskListDto));
+        return taskListMappers.toDto(createdTaskList);
     }
 }
