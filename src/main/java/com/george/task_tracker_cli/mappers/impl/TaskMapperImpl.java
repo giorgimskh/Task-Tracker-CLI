@@ -9,14 +9,14 @@ import org.springframework.stereotype.Component;
 public class TaskMapperImpl implements TaskMapper {
 
     @Override
-    public Task fromDto(TaskDto dto) {
+    public Task fromDto(TaskDto taskDto) {
         return new Task(
-                dto.id(),
-                dto.title(),
-                dto.description(),
-                dto.dueDate(),
-                dto.status(),
-                dto.priority(),
+                taskDto.id(),
+                taskDto.title(),
+                taskDto.description(),
+                taskDto.dueDate(),
+                taskDto.status(),
+                taskDto.priority(),
                 null,
                 null,
                 null
@@ -30,7 +30,7 @@ public class TaskMapperImpl implements TaskMapper {
                 task.getTitle(),
                 task.getDescription(),
                 task.getDueDate(),
-                task.getTaskPriority(),
+                task.getPriority(),
                 task.getStatus()
         );
     }
