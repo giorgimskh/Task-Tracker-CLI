@@ -1,7 +1,6 @@
 package com.george.task_tracker_cli.Repositories;
 
 import com.george.task_tracker_cli.domain.entities.Task;
-import com.george.task_tracker_cli.domain.entities.TaskList;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -11,6 +10,6 @@ import java.util.UUID;
 
 @Repository
 public interface TaskRepository extends JpaRepository<Task, UUID> {
-    List<Task> findByTaskList(TaskList taskList);
-    Optional<Task>  findByTaskList_IdAndId(UUID taskListId, UUID id);
+    List<Task> findByTaskListId(UUID taskListId);
+    Optional<Task> findByTaskListIdAndId(UUID taskListId, UUID id);
 }
