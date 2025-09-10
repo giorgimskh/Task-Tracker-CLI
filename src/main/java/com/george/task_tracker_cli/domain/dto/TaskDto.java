@@ -1,4 +1,4 @@
-package com.george.task_tracker_cli.domain.TaskDto;
+package com.george.task_tracker_cli.domain.dto;
 
 import com.george.task_tracker_cli.domain.entities.TaskPriority;
 import com.george.task_tracker_cli.domain.entities.TaskStatus;
