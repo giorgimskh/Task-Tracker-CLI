@@ -1,6 +1,6 @@
 package com.george.task_tracker_cli.mappers.impl;
 
-import com.george.task_tracker_cli.domain.TaskDto.TaskListDto;
+import com.george.task_tracker_cli.domain.dto.TaskListDto;
 import com.george.task_tracker_cli.domain.entities.Task;
 
 import com.george.task_tracker_cli.domain.entities.TaskList;
