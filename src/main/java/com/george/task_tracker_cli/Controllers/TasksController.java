@@ -2,11 +2,9 @@ package com.george.task_tracker_cli.Controllers;
 
 import com.george.task_tracker_cli.Services.TaskService;
 import com.george.task_tracker_cli.domain.dto.TaskDto;
+import com.george.task_tracker_cli.domain.entities.Task;
 import com.george.task_tracker_cli.mappers.TaskMapper;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -25,5 +23,11 @@ public class TasksController {
     @GetMapping
     public List<TaskDto> ListTasks(@PathVariable("task_list_id") UUID taskListId) {
         return taskService.ListTasks(taskListId).stream().map(taskMapper::toDto).toList();
+    }
+
+    @PostMapping
+    public TaskDto createTask(@PathVariable("task_list_id") UUID taskListId,@RequestBody TaskDto taskDto) {
+        Task createdTask= taskService.createTask(taskListId,taskMapper.fromDto(taskDto));
+        return taskMapper.toDto(createdTask);
     }
 }
