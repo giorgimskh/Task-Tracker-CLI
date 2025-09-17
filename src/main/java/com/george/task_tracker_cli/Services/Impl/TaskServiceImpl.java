@@ -7,6 +7,7 @@ import com.george.task_tracker_cli.domain.entities.Task;
 import com.george.task_tracker_cli.domain.entities.TaskList;
 import com.george.task_tracker_cli.domain.entities.TaskPriority;
 import com.george.task_tracker_cli.domain.entities.TaskStatus;
+import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -91,5 +92,11 @@ public class TaskServiceImpl implements TaskService {
         existingTask.setUpdated(LocalDateTime.now());
 
         return taskRepository.save(existingTask);
+    }
+
+    @Transactional
+    @Override
+    public void deleteTask(UUID taskListId, UUID taskId) {
+        taskRepository.deleteByTaskListIdAndId(taskListId, taskId);
     }
 }
